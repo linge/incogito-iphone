@@ -7,12 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import <QuartzCore/QuartzCore.h>
+#import "ClubzoneMapAnnotation.h"
 
-
-@interface ClubZoneViewController : UIViewController {
-
+@interface ClubZoneViewController : UIViewController <MKMapViewDelegate>{
+	IBOutlet MKMapView *mapView;
+	IBOutlet UIButton *locationToggle;
+	BOOL followingLocation;
 }
 
-- (IBAction)openMap:(id)sender;
+@property (nonatomic, retain) MKMapView *mapView;
+@property (nonatomic, retain) UIButton *locationToggle;
+
+
+- (IBAction)locationButton:(id)sender;
+- (void) goToDefaultLocationAndZoom;
 
 @end
